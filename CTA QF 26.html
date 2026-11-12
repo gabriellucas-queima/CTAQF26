@@ -1,0 +1,475 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>After editável de CTA QF</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap">
+<style>
+  /* Layout: coluna única de 880px, seções separadas por fio, numeral fino em laranja ao lado de cada título (como no guia de marca). */
+  :root {
+    --bg: #141211;
+    --surface: #1e1a17;
+    --surface-2: #28231f;
+    --line: #342d28;
+    --fg: #f7f4f0;
+    --soft: #ddd5cd;
+    --muted: #b8aea6;
+    --orange: #ff4f00;
+    --brasa: #bf3d00;
+    --chama: #ff8346;
+    --pessego: #ffc9ae;
+    --font-display: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-body: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    padding-block: 40px 80px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .wrap { max-width: 880px; margin-inline: auto; }
+
+  :focus-visible { outline: 2px solid var(--chama); outline-offset: 2px; }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--surface-2);
+    color: var(--pessego);
+    padding: 2px 7px;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+  }
+
+  /* Hero */
+  .hero { position: relative; padding: 32px 0 8px; }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: 0;
+    width: min(520px, 100%);
+    height: 340px;
+    background: radial-gradient(closest-side, rgba(191, 61, 0, 0.42), rgba(191, 61, 0, 0));
+    pointer-events: none;
+  }
+  .hero > * { position: relative; }
+
+  .eyebrow {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 0;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(42px, 9vw, 80px);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    margin: 16px 0 20px;
+    text-wrap: balance;
+  }
+  h1 .hl { color: var(--orange); }
+
+  .lede {
+    font-size: clamp(17px, 2.4vw, 20px);
+    color: var(--soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin: 40px 0 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--pessego);
+  }
+  .meta dt {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+  .meta dd {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  /* Seções */
+  section { margin-top: 72px; padding-top: 56px; border-top: 1px solid var(--line); }
+
+  .sec-head {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 18px;
+    align-items: start;
+    margin-bottom: 32px;
+  }
+  .num {
+    font-family: var(--font-display);
+    font-weight: 200;
+    font-size: clamp(44px, 8vw, 60px);
+    line-height: 1;
+    color: var(--orange);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(26px, 5vw, 34px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 4px 0 0;
+    text-wrap: balance;
+  }
+  .sec-sub { color: var(--muted); margin: 8px 0 0; max-width: 60ch; font-size: 15px; }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  /* 01 Etapas */
+  .steps { list-style: none; margin: 0; padding: 0; }
+  .step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: 20px;
+    padding-bottom: 40px;
+  }
+  .step:last-child { padding-bottom: 0; }
+  .step::before {
+    content: "";
+    position: absolute;
+    left: 21px;
+    top: 48px;
+    bottom: 4px;
+    width: 1px;
+    background: var(--line);
+  }
+  .step:last-child::before { display: none; }
+  .mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 17px;
+  }
+  .step > div { min-width: 0; }
+  .step h3 { margin-top: 8px; }
+  .step p { margin: 6px 0 0; color: var(--muted); max-width: 64ch; }
+  .step .note { margin-top: 12px; font-size: 15px; color: var(--soft); }
+  .tag {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-right: 8px;
+  }
+
+  .shot { margin: 18px 0 0; max-width: 100%; }
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+  }
+  .shot figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .shot.w-lg { max-width: 640px; }
+  .shot.w-md { max-width: 440px; }
+  .shot.w-sm { max-width: 270px; }
+
+  /* 02 Tipografia */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px;
+    min-width: 0;
+  }
+  .type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .type-card .eyebrow { margin-bottom: 14px; }
+  .type-card .use { color: var(--muted); margin: 6px 0 20px; font-size: 15px; }
+  .sample-a { font-family: var(--font-display); font-weight: 800; font-size: 56px; line-height: 1; letter-spacing: -0.02em; }
+  .sample-a small { font-weight: 300; font-size: 24px; letter-spacing: 0; margin-left: 8px; }
+  .sample-b { font-weight: 700; font-size: 22px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--orange); }
+  .sample-b-sub { font-weight: 400; font-size: 14px; color: var(--muted); margin-top: 8px; }
+
+  .fonts-path { margin-top: 16px; }
+  .fonts-path p { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+  .path-row { display: flex; gap: 12px; align-items: stretch; margin-top: 16px; flex-wrap: wrap; }
+  .path {
+    flex: 1 1 320px;
+    min-width: 0;
+    background: var(--surface-2);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--pessego);
+    overflow-wrap: anywhere;
+  }
+  .copy {
+    font: 700 13px var(--font-body);
+    color: var(--fg);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0 18px;
+    min-height: 44px;
+    cursor: pointer;
+  }
+  .copy:hover { border-color: var(--orange); }
+
+  /* 03 Entrega */
+  .names { display: grid; gap: 20px; }
+  .name-row { display: grid; gap: 8px; min-width: 0; }
+  .name-row .label {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .codebox {
+    overflow-x: auto;
+    background: var(--surface-2);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--pessego);
+    white-space: nowrap;
+  }
+  .codebox .ph { color: var(--orange); font-weight: 700; }
+  .deliver-lead { color: var(--soft); max-width: 62ch; margin: 0 0 28px; }
+
+  @media (max-width: 760px) {
+    section { margin-top: 56px; padding-top: 44px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Guia do projeto</p>
+    <h1>After editável de <span class="hl">CTA</span> QF</h1>
+    <p class="lede">Um projeto de After Effects com o CTA da campanha já animado e aprovado. Você escolhe a treinadora, escreve o texto do pop-up e ativa a faixa, sem mexer na animação.</p>
+
+    <dl class="meta">
+      <div>
+        <dt>Formatos</dt>
+        <dd>Wide e Híbrido</dd>
+      </div>
+      <div>
+        <dt>Você edita</dt>
+        <dd>Treinadora, texto do pop-up e faixa</dd>
+      </div>
+      <div>
+        <dt>Já vem pronto</dt>
+        <dd>Animação, cores e fontes</dd>
+      </div>
+    </dl>
+  </header>
+
+  <section id="como-funciona">
+    <div class="sec-head">
+      <span class="num">01</span>
+      <div>
+        <h2>Como funciona</h2>
+        <p class="sec-sub">Do arquivo aberto ao vídeo exportado, em cinco etapas.</p>
+      </div>
+    </div>
+
+    <ol class="steps">
+      <li class="step">
+        <span class="mark">1</span>
+        <div>
+          <h3>Abra o projeto</h3>
+          <p>Abra o arquivo <code>.aep</code> do projeto no After Effects.</p>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="mark">2</span>
+        <div>
+          <h3>Abra a composição de CTA</h3>
+          <p>Escolha a composição do formato que vai exportar: <code>qd-qf-2026-cta-wide</code> ou <code>qd-qf-2026-cta-hibrido</code>.</p>
+          <figure class="shot w-lg">
+            <img src="img/comp-wide.png" alt="Composição qd-qf-2026-cta-wide com as camadas CONTROL - TREINADORA, TEXTO CTA e CTA - box texto" width="959" height="354">
+            <figcaption>Composição wide, com as camadas CONTROL - TREINADORA, TEXTO CTA e CTA - box texto.</figcaption>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="mark">3</span>
+        <div>
+          <h3>Escolha a treinadora</h3>
+          <p>No layer <code>CONTROL - TREINADORA</code>, abra a aba Effect Controls e marque o checkbox de quem entra no vídeo: Agatha ou Carol.</p>
+          <figure class="shot w-md">
+            <img src="img/control.png" alt="Effect Controls do layer CONTROL - TREINADORA com os checkboxes Carol e Agatha" width="485" height="408">
+            <figcaption>Effect Controls: um checkbox para Carol e outro para Agatha.</figcaption>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="mark">4</span>
+        <div>
+          <h3>Escreva o texto do pop-up</h3>
+          <p>No layer <code>TEXTO CTA</code>, insira o texto do pop-up.</p>
+          <p class="note"><span class="tag">Obs.</span>O texto aparece duas vezes no vídeo, só para você ver o que está escrevendo. Ao exportar, aparece apenas o pop-up.</p>
+          <p class="note"><span class="tag">Obs.</span>Ao dar Enter, a linha de baixo fica automaticamente mais fina.</p>
+          <figure class="shot w-sm">
+            <img src="img/popup.png" alt="Composição híbrida com o pop-up Clique no link e saiba mais, com a segunda linha mais fina" width="348" height="606">
+            <figcaption>Pop-up com a segunda linha mais fina.</figcaption>
+          </figure>
+        </div>
+      </li>
+
+      <li class="step">
+        <span class="mark">5</span>
+        <div>
+          <h3>Ative a faixa</h3>
+          <p>Para alterar a faixa (ex.: “desconto urgente”, “tempo limitado”), entre na composição <code>CTA - faixas</code> e ative a faixa correta.</p>
+          <figure class="shot w-md">
+            <img src="img/faixas.png" alt="Composição CTA - faixas com a lista de faixas disponíveis e a faixa queima-friday ativada" width="510" height="413">
+            <figcaption>Uma faixa visível por vez. Aqui, a faixa queima-friday está ativa.</figcaption>
+          </figure>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="tipografia">
+    <div class="sec-head">
+      <span class="num">02</span>
+      <div>
+        <h2>Tipografia</h2>
+        <p class="sec-sub">Duas famílias, ambas gratuitas no Google Fonts.</p>
+      </div>
+    </div>
+
+    <div class="type-grid">
+      <div class="card type-card">
+        <p class="eyebrow">Manrope</p>
+        <p class="use">Títulos, preços e “OFF”.</p>
+        <div class="sample-a">50%<small>OFF</small></div>
+      </div>
+      <div class="card type-card">
+        <p class="eyebrow">Plus Jakarta Sans</p>
+        <p class="use">CTA, faixas, selos e textos de apoio.</p>
+        <div class="sample-b">Assinar agora</div>
+        <div class="sample-b-sub">Preço garantido enquanto sua assinatura estiver ativa.</div>
+      </div>
+    </div>
+
+    <div class="card fonts-path">
+      <h3>Fontes do projeto</h3>
+      <p>Disponíveis no caminho:</p>
+      <div class="path-row">
+        <div class="path" id="fonts-path">W:\PRODUCAO\Queima Diária\Edicao\projetos\qd-qf-2026\qd-qf-2026-000\ASSETS\7. FONTS</div>
+        <button class="copy" id="copy-path" type="button">Copiar caminho</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="entrega">
+    <div class="sec-head">
+      <span class="num">03</span>
+      <div>
+        <h2>Entrega</h2>
+        <p class="sec-sub">Nomenclatura dos arquivos exportados.</p>
+      </div>
+    </div>
+
+    <p class="deliver-lead">Um nome por arquivo, sempre com o texto completo do pop-up em minúsculas, separado por traços.</p>
+
+    <div class="names">
+      <div class="name-row">
+        <span class="label">Híbrido</span>
+        <div class="codebox">qd-qf-2026-cta-hibrido-<span class="ph">INFORMAÇÃO DO POPUP</span></div>
+      </div>
+      <div class="name-row">
+        <span class="label">Wide</span>
+        <div class="codebox">qd-qf-2026-cta-wide-<span class="ph">INFORMAÇÃO DO POPUP</span></div>
+      </div>
+      <div class="name-row">
+        <span class="label">Exemplo com o pop-up “Clique no link e saiba mais”</span>
+        <div class="codebox">qd-qf-2026-cta-wide-<span class="ph">clique-no-link-e-saiba-mais</span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  (function () {
+    var btn = document.getElementById("copy-path");
+    var box = document.getElementById("fonts-path");
+    if (!btn || !box) return;
+    function selectText() {
+      var range = document.createRange();
+      range.selectNodeContents(box);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+    btn.addEventListener("click", function () {
+      var text = box.textContent;
+      var done = function (label) {
+        btn.textContent = label;
+        setTimeout(function () { btn.textContent = "Copiar caminho"; }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          done("Copiado");
+        }, function () {
+          selectText();
+          done("Selecionado");
+        });
+      } else {
+        selectText();
+        done("Selecionado");
+      }
+    });
+  })();
+</script>
+
+</body></html>
